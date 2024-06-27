@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Task-1</title>
+</head>
+<body>
+    <h1>The given number is:32243</h1>
+    <h3>The reversed number is</h3>
+    <script>
+        function revNumber(num) {
+            let numStr = num.toString();
+            let revStr = numStr.split('').reverse().join('');
+            let revNum = parseInt(revStr, 10);
+            return revNum;
+        }
+
+        
+        let x = 32243;
+        document.write(revNumber(x)); 
+    </script>
+</body>
+</html>

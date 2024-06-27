@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Task-2</title>
+</head>
+<body>
+    <h1>The given string is:webmaster</h1>
+    <h3>The reversed string is:</h3>
+    <script>
+        function String(str) {
+    let charArray = str.split('');
+    
+    charArray.sort();
+    
+    
+    let sortedStr = charArray.join('');
+    
+    return sortedStr;
+}
+
+let String1 = 'webmaster';
+let revString = String(String1);
+document.write(revString);  
+
+    </script>
+    
+</body>
+</html>

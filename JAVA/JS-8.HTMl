@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>JS Task-8</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .wd {
+            width: 45%;
+            background: linear-gradient(to bottom, #ffff99 10%, #ff99cc 100%)
+            
+        }
+       
+    </style>
+  </head>
+  <body>
+    <center>
+        <form action="#" method="" onsubmit="return validate()">
+            <div id="out">
+                <div class="wd">
+                    <table>
+                        <h1 style= "color:blue" text-align: center; >Registration form</h1>
+                        <tr  width="150" height="40">
+                            <td><label for="firstName" class="form-check-label">First Name</label></td>
+                            <td><input type="text" name="in" id="firstName" class="form-control"></td>
+                            <td><span class="error"></span></td>
+                        </tr>
+                        <tr  width="150" height="40">
+                            <td><label for="lastName" class="form-check-label">Last Name</label></td>
+                            <td><input type="text" name="in" id="lastName" class="form-control"></td>
+                            <td><span class="error"></span></td>
+                        </tr>
+                        <tr  width="150" height="40">
+                            <td><label for="email" class="form-check-label">Email</label></td>
+                            <td><input type="email" name="in" id="email" class="form-control"></td>
+                            <td><span class="error"></span></td>
+                        </tr>
+                        <tr  width="150" height="40">
+                            <td><label for="pass" class="form-check-label">Password</label></td>
+                            <td><input type="password" name="in" id="pass" class="form-control pass"></td>
+                            <td><span class="error"></span></td>
+                        </tr>
+                        <tr  width="150" height="40">
+                            <td><label for="Repass" class="form-check-label">Re-enter Password</label></td>
+                            <td><input type="password" name="" id="Repass" class="form-control pass" onkeyup="passwordCheck()"></td>
+                            <td><span id="passerror"></span></td>
+                        </tr>
+                        <tr  width="150" height="40">
+                            <td><label for="gender" class="form-check-label">Gender</label></td>
+                            <td>
+                                <input type="radio" name="gender" id="male" value="Male" class="Gender">
+                                <label for="male">Male</label>
+                                <input type="radio" name="gender" id="female" value="Female" class="Gender">
+                                <label for="female">Female</label>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr  width="150" height="40">
+                            <td><label for="age" class="form-check-label">Age</label></td>
+                            <td><input type="number" name="in" id="age" class="form-control"></td>
+                            <td><span class="error"></span></td>
+                        </tr>
+                        <tr  width="150" height="40">
+                            <td><label for="phNo" class="form-check-label">Phone Number</label></td>
+                            <td><input type="number" name="in" id="phNo" class="form-control"></td>
+                            <td><span class="error"></span></td>
+                        </tr>
+                        <tr  width="150" height="40">
+                            <td><label for="address" class="form-check-label">Address</label></td>
+                            <td><textarea name="in" id="address" cols="30" rows="10" class="form-control"></textarea></td>
+                            <td><span class="error"></span></td>
+                        </tr>
+                        <tr  width="150" height="40">
+                            <td><label for="state" class="form-check-label">State</label></td>
+                            <td><input type="text" name="in" id="state" class="form-control"></td>
+                            <td><span class="error"></span></td>
+                        </tr>
+                        <tr  width="150" height="40">
+                            <td><label for="country" class="form-check-label">Country</label></td>
+                            <td>
+                                <select name="country" id="country" class="form-control">
+                                    <option value="">Choose your country</option>
+                                    <option value="india">India</option>
+                                    <option value="USA">Pakistan</option>
+                                    <option value="nepal">Nepal</option>
+                                    <option value="sri lanka">Sri Lanka</option>
+                                    <option value="china">China</option>
+                                </select>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr  width="150" height="40">
+                            <td><label for="lang" class="form-check-label">Languages known</label></td>
+                            <td>
+                                <input type="checkbox" name="lang" id="english" value="English" class="language">
+                                <label for="english" class="form-check-label">English</label>
+                                <input type="checkbox" name="lang" id="kannada" value="Kannada" class="language">
+                                <label for="kannada" class="form-check-label">Kannada</label>
+                                <input type="checkbox" name="lang" id="hindi" value="Hindi" class="language">
+                                <label for="hindi" class="form-check-label">Hindi</label>
+                                <input type="checkbox" name="lang" id="telugu" value="Telugu" class="language">
+                                <label for="telugu" class="form-check-label">Telugu</label>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div>
+                                    <input type="checkbox" name="confirmation" value="confirmation" id="confirmation">
+                                    <label for="confirmation" class="form-check-label">Hereby I declare all the given details are true</label>
+                                </div>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-center"><input type="submit" value="Register"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </form>
+    </center>
+    <script>
+        function validate() {
+            var count = true;
+            for (var i = 0; i < 7; i++) {
+                var x = document.getElementsByName("in")[i].value;
+                if (x.length <= 3) {
+                    document.getElementsByClassName("error")[i].innerHTML = "Poor";
+                    document.getElementsByClassName("error")[i].style.color = "red";
+                    document.getElementsByName("in")[i].style.borderColor = "red";
+                    document.getElementsByName("in")[i].style.borderWidth = "1px";
+                    count = false;
+                } else {
+                    document.getElementsByClassName("error")[i].innerHTML = "Good";
+                    document.getElementsByClassName("error")[i].style.color = "rgb(5, 205, 5)";
+                    document.getElementsByName("in")[i].style.borderColor = "rgb(5, 205, 5)";
+                    document.getElementsByName("in")[i].style.borderWidth = "1px";
+                }
+            }
+            return count;
+        }
+        function passwordCheck() {
+            var Pass = document.getElementsByClassName("pass")[0].value;
+            var RePass = document.getElementsByClassName("pass")[1].value;
+            if (Pass === RePass) {
+                document.getElementById("passerror").innerText = "Good and Matching";
+                document.getElementById("passerror").style.color = "rgb(5, 205, 5)";
+                document.getElementsByClassName("pass")[1].style.borderColor = "rgb(5, 205, 5)";
+                document.getElementsByClassName("pass")[1].style.borderWidth = "1px";
+            } else {
+                document.getElementById("passerror").innerText = "Poor or Mismatch";
+                document.getElementById("passerror").style.color = "red";
+                document.getElementsByClassName("pass")[1].style.borderColor = "red";
+                document.getElementsByClassName("pass")[1].style.borderWidth = "1px";       
+            }
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6>
+    
